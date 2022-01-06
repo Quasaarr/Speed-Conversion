@@ -15,10 +15,10 @@ while True:
        print("Please input (M)ph or (K)ph!")
        continue
     if unit.upper() == "M":
-        converted_speed = speed * 1.60934
+        converted_speed = speed * 1.609344
         print(f"You were going {converted_speed}kph!")
     if unit.upper() == "K":
-        converted_speed = speed / 1.60934
+        converted_speed = speed / 1.609344
         print(f"You were going {converted_speed}mph!")
 
     # Repeat-Input Loop
