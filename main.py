@@ -47,7 +47,7 @@ while True:
     if unit.upper() == "K":
         if desired_unit.upper() == "M":
             converted_speed = speed * 0.6213711111
-            print(f"You were going {converted_speed.__round__(accuracy)}mph!to fo", line_break)
+            print(f"You were going {converted_speed.__round__(accuracy)}mph!", line_break)
         elif desired_unit.upper() == "KN":
             converted_speed = speed * 0.5399569444
             print(f"You were going {converted_speed.__round__(accuracy)} knots!", line_break)
