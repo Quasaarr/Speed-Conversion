@@ -1,12 +1,3 @@
-from class1 import ConvertSpeedM
-from class1 import ConvertSpeedK
-from class2 import ConvertSpeedKN
-from class2 import ConvertSpeedMA
-from config import Speed
-from config import Accuracy
-from config import Desired_Unit
-
-
 line_break = "\n"
 
 # Program Introduction
@@ -18,41 +9,39 @@ All conversion formulas are from NASA's official website!
 
 # Program Loop
 while True:
-    Speed()
+    # Speed-Input Loop
+    while True:
+        try:
+            speed = float(input("Speed? "))
+            break
+        except ValueError:
+            print("Please input numerical values only!", line_break)
 
 # Unit-Input Loop
     while True:
-        unit = str(input("What unit of speed? (M)ph, (K)m/h, (Kn)ots, or (Ma)ch? "))
+        unit = input("What unit of speed? (M)ph, (K)m/h, (Kn)ots, or (Ma)ch? ")
         if unit.upper() in ("M", "K", "KN", "MA"):
             break
         print("Please input (M)ph, (K)m/h, (Kn)ots, or (Ma)ch!", line_break)
         continue
 
 # Desired_Unit-Input Loop
-    Desired_Unit()
+    while True:
+        desired_unit = input("What would you like to convert to? (M)ph, (K)m/h, (Kn)ots, or (Ma)ch? ")
+        if desired_unit.upper() in ("M", "K", "KN", "MA"):
+            break
+        print("Please input (M)ph, (K)m/h, (Kn)ots, or (Ma)ch!", line_break)
+        continue
 
-    Accuracy()
+# Accuracy-Input Loop
+    while True:
+        try:
+            accuracy = int(input("How many decimal points would you like to round to? "))
+            break
+        except ValueError:
+            print("Please input integers (whole numbers) only!", line_break)
 
-    if unit.upper() == "M":
-        class1.ConvertSpeedM.m_t_m()
-        class1.ConvertSpeedM.m_t_k()
-        class1.ConvertSpeedM.m_t_kn()
-        class1.ConvertSpeedM.m_t_ma()
-    if unit.upper() == "K":
-        class1.ConvertSpeedK.k_t_k()
-        class1.ConvertSpeedK.k_t_m()
-        class1.ConvertSpeedK.k_t_kn()
-        class1.ConvertSpeedK.k_t_ma()
-    if unit.upper() == "KN":
-        class2.ConvertSpeedKN.kn_t_kn()
-        class2.ConvertSpeedKN.kn_t_m()
-        class2.ConvertSpeedKN.kn_t_k()
-        class2.ConvertSpeedKN.kn_t_ma()
-    if unit.upper() == "MA":
-        class2.ConvertSpeedMA.ma_t_ma()
-        class2.ConvertSpeedMA.ma_t_m()
-        class2.ConvertSpeedMA.ma_t_k()
-        class2.ConvertSpeedMA.ma_t_kn()
+import
 
 # Repeat-Input Loop
     while True:

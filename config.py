@@ -2,10 +2,10 @@ speed_input = float(input("Speed? "))
 accuracy_input = int(input("How many decimal points would you like to round to? "))
 desired_unit = input("What would you like to convert to? (M)ph, (K)m/h, (Kn)ots, or (Ma)ch? ")
 
-def Speed():
+def Speed(speed_input):
     while True:
         try:
-            speed_input
+            speed_input = float(input("Speed? "))
             break
         except ValueError:
             print("Please input numerical values only!", "\n")
@@ -29,4 +29,3 @@ def Desired_Unit():
             break
         print("Please input (M)ph, (K)m/h, (Kn)ots, or (Ma)ch!", line_break)
         continue
-
