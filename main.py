@@ -1,56 +1,72 @@
-line_break = "\n"
+from MileConversion import ConvertSpeedM
+from KilometerConversion import ConvertSpeedK
+from KnotConversion import ConvertSpeedKN
+from MachConversion import ConvertSpeedMA
+CM = ConvertSpeedM()
+CK = ConvertSpeedK()
+CKN = ConvertSpeedKN()
+CMA = ConvertSpeedMA()
 
-# Program Introduction
-print("""
-This is a high precision speed converter that currently includes 4 units. 
-Miles per hour, Kilometers per hour, Knots, and Mach!
-All conversion formulas are from NASA's official website! 
-""")
+# Line Break
+lb = "\n"
 
-# Program Loop
 while True:
-    # Speed-Input Loop
     while True:
         try:
             speed = float(input("Speed? "))
             break
         except ValueError:
-            print("Please input numerical values only!", line_break)
+            print("Numerical Values Only!", lb)
 
-# Unit-Input Loop
     while True:
-        unit = input("What unit of speed? (M)ph, (K)m/h, (Kn)ots, or (Ma)ch? ")
-        if unit.upper() in ("M", "K", "KN", "MA"):
+        unit_input = input("What unit of speed? Mph, Km/h, Knots, or Mach? ")
+        unit = unit_input[0].upper()
+        if unit in ("M", "K", "KN", "MA"):
             break
-        print("Please input (M)ph, (K)m/h, (Kn)ots, or (Ma)ch!", line_break)
+        print("Please input (M)ph, (K)m/h, (Kn)ots, or (Ma)ch!", lb)
         continue
 
-# Desired_Unit-Input Loop
     while True:
-        desired_unit = input("What would you like to convert to? (M)ph, (K)m/h, (Kn)ots, or (Ma)ch? ")
-        if desired_unit.upper() in ("M", "K", "KN", "MA"):
+        desired_unit_input = input("What would you like to convert to? (M)ph, (K)m/h, (Kn)ots, or (Ma)ch? ")
+        desired_unit = desired_unit_input[0].upper()
+        if desired_unit in ("M", "K", "KN", "MA"):
             break
-        print("Please input (M)ph, (K)m/h, (Kn)ots, or (Ma)ch!", line_break)
+        print("Please input (M)ph, (K)m/h, (Kn)ots, or (Ma)ch!", lb)
         continue
 
-# Accuracy-Input Loop
     while True:
-        try:
-            accuracy = int(input("How many decimal points would you like to round to? "))
+        round_input = input("Would you like to round? ")
+        round = round_input[0].upper()
+        if round in ("Y"):
+            while True:
+                try:
+                    accuracy = int(input("How many decimal points would you like to round to? "))
+                    break
+                except ValueError:
+                    print("Please input integers (whole numbers) only!", lb)
             break
-        except ValueError:
-            print("Please input integers (whole numbers) only!", line_break)
-
-import
-
-# Repeat-Input Loop
-    while True:
-        answer = str(input("Run again? (Y/N): "))
-        if answer.upper() in ("Y", "N"):
+        if round in ("N"):
+            accuracy = 100
             break
-        print("Please input (Y) or (N)!", line_break)
-    if answer.upper() == "Y":
-        continue
-    if answer.upper() == "N":
-        print("Goodbye! Thank you for using this program!")
-        break
+        else:
+            print("Answer with yes or no please!", lb)
+            continue
+
+    if unit == "M":
+        if desired_unit == "M":
+            print(CM.m_t_m(speed, desired_unit, accuracy))
+        if desired_unit == "K":
+            print(CM.m_t_k(speed, desired_unit, accuracy))
+        if desired_unit == "KN":
+            print(CM.m_t_kn(speed, desired_unit, accuracy))
+        if desired_unit == "MA":
+            print(CM.m_t_ma(speed, desired_unit, accuracy))
+    if unit == "K":
+        CK
+    if unit == "KN":
+        CKN
+    if unit == "MA":
+        CMA
+
+
+
