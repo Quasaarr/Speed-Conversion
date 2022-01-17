@@ -1,11 +1,11 @@
-from MileConversion import ConvertSpeedM
-from KilometerConversion import ConvertSpeedK
-from KnotConversion import ConvertSpeedKN
-from MachConversion import ConvertSpeedMA
-CM = ConvertSpeedM()
-CK = ConvertSpeedK()
-CKN = ConvertSpeedKN()
-CMA = ConvertSpeedMA()
+from ConversionFunctions import MileConversion
+from ConversionFunctions import KilometerConversion
+from ConversionFunctions import KnotConversion
+from ConversionFunctions import MachConversion
+CM = MileConversion.ConvertSpeedM()
+CK = KilometerConversion.ConvertSpeedK()
+CKN = KnotConversion.ConvertSpeedKN()
+CMA = MachConversion.ConvertSpeedMA()
 
 # Line Break
 lb = "\n"
@@ -37,7 +37,7 @@ while True:
     while True:
         round_input = input("Would you like to round? ")
         round = round_input[0].upper()
-        if round in ("Y"):
+        if round in "Y":
             while True:
                 try:
                     accuracy = int(input("How many decimal points would you like to round to? "))
@@ -45,7 +45,7 @@ while True:
                 except ValueError:
                     print("Please input integers (whole numbers) only!", lb)
             break
-        if round in ("N"):
+        if round in "N":
             accuracy = 100
             break
         else:
@@ -67,6 +67,3 @@ while True:
         CKN
     if unit == "MA":
         CMA
-
-
-
