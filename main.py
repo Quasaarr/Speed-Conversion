@@ -16,22 +16,22 @@ while True:
             speed = float(input("Speed? "))
             break
         except ValueError:
-            print("Numerical Values Only!", lb)
+            print("Numerical Values Only Please!", lb)
 
     while True:
         unit_input = input("What unit of speed? Mph, Km/h, Knots, or Mach? ")
-        unit = unit_input[0].upper()
-        if unit in ("M", "K", "KN", "MA"):
+        unit = unit_input[0:2].upper()
+        if unit in ("M", "MP", "K", "KM", "KN", "MA"):
             break
-        print("Please input (M)ph, (K)m/h, (Kn)ots, or (Ma)ch!", lb)
+        print("Please input Mph, Km/h, Knots, or Mach!", lb)
         continue
 
     while True:
         desired_unit_input = input("What would you like to convert to? (M)ph, (K)m/h, (Kn)ots, or (Ma)ch? ")
-        desired_unit = desired_unit_input[0].upper()
-        if desired_unit in ("M", "K", "KN", "MA"):
+        desired_unit = desired_unit_input[0:2].upper()
+        if desired_unit in ("M", "MP", "K", "KM", "KN", "MA"):
             break
-        print("Please input (M)ph, (K)m/h, (Kn)ots, or (Ma)ch!", lb)
+        print("Please input Mph, Km/h, Knots, or Mach!", lb)
         continue
 
     while True:
@@ -52,18 +52,24 @@ while True:
             print("Answer with yes or no please!", lb)
             continue
 
-    if unit == "M":
-        if desired_unit == "M":
-            print(CM.m_t_m(speed, desired_unit, accuracy))
-        if desired_unit == "K":
-            print(CM.m_t_k(speed, desired_unit, accuracy))
-        if desired_unit == "KN":
-            print(CM.m_t_kn(speed, desired_unit, accuracy))
-        if desired_unit == "MA":
-            print(CM.m_t_ma(speed, desired_unit, accuracy))
-    if unit == "K":
-        CK
-    if unit == "KN":
-        CKN
-    if unit == "MA":
-        CMA
+    CM.m_t_m(speed, unit, desired_unit, accuracy)
+    CM.m_t_k(speed, unit, desired_unit, accuracy)
+    CM.m_t_kn(speed, unit, desired_unit, accuracy)
+    CM.m_t_ma(speed, unit, desired_unit, accuracy)
+
+    CK.k_t_k(speed, unit, desired_unit, accuracy)
+    CK.k_t_m(speed, unit, desired_unit, accuracy)
+    CK.k_t_kn(speed, unit, desired_unit, accuracy)
+    CK.k_t_ma(speed, unit, desired_unit, accuracy)
+
+    CKN.kn_t_kn(speed, unit, desired_unit, accuracy)
+    CKN.kn_t_m(speed, unit, desired_unit, accuracy)
+    CKN.kn_t_k(speed, unit, desired_unit, accuracy)
+    CKN.kn_t_ma(speed, unit, desired_unit, accuracy)
+
+    CMA.ma_t_ma(speed, unit, desired_unit, accuracy)
+    CMA.ma_t_m(speed, unit, desired_unit, accuracy)
+    CMA.ma_t_k(speed, unit, desired_unit, accuracy)
+    CMA.ma_t_kn(speed, unit, desired_unit, accuracy)
+
+
