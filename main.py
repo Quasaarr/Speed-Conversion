@@ -11,6 +11,7 @@ CMA = MachConversion.ConvertSpeedMA()
 lb = "\n"
 
 while True:
+#Speed Input
     while True:
         try:
             speed = float(input("Speed? "))
@@ -18,22 +19,25 @@ while True:
         except ValueError:
             print("Numerical Values Only Please!", lb)
 
+#Unit Input
     while True:
         unit_input = input("What unit of speed? Mph, Km/h, Knots, or Mach? ")
         unit = unit_input[0:2].upper()
-        if unit in ("M", "MP", "K", "KM", "KN", "MA"):
+        if unit in ("MP", "KM", "KN", "MA"):
             break
         print("Please input Mph, Km/h, Knots, or Mach!", lb)
         continue
 
+#Desired Unit Input
     while True:
-        desired_unit_input = input("What would you like to convert to? (M)ph, (K)m/h, (Kn)ots, or (Ma)ch? ")
+        desired_unit_input = input("What would you like to convert to? Mph, Kmh, Knots, or Mach? ")
         desired_unit = desired_unit_input[0:2].upper()
-        if desired_unit in ("M", "MP", "K", "KM", "KN", "MA"):
+        if desired_unit in ("MP", "KM", "KN", "MA"):
             break
-        print("Please input Mph, Km/h, Knots, or Mach!", lb)
+        print("Please input Mph, Kmh, Knots, or Mach!", lb)
         continue
 
+#Accuracy Input
     while True:
         round_input = input("Would you like to round? ")
         round = round_input[0].upper()
@@ -52,6 +56,7 @@ while True:
             print("Answer with yes or no please!", lb)
             continue
 
+#Conversion Functions
     CM.m_t_m(speed, unit, desired_unit, accuracy)
     CM.m_t_k(speed, unit, desired_unit, accuracy)
     CM.m_t_kn(speed, unit, desired_unit, accuracy)
@@ -72,4 +77,16 @@ while True:
     CMA.ma_t_k(speed, unit, desired_unit, accuracy)
     CMA.ma_t_kn(speed, unit, desired_unit, accuracy)
 
+#Program Loop Input
+    while True:
+        repeat_input = str(input("Run again? (Y/N): "))
+        repeat = repeat_input.upper
+        if repeat in ("Y", "N"):
+            break
+        print("Input (Y) or (N) please!", lb)
+    if repeat == "Y":
+        continue
+    else:
+        print("Goodbye")
+        break
 
