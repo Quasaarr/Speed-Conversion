@@ -2,10 +2,12 @@ from ConversionFunctions import MileConversion
 from ConversionFunctions import KilometerConversion
 from ConversionFunctions import KnotConversion
 from ConversionFunctions import MachConversion
-CM = MileConversion.ConvertSpeedM()
-CK = KilometerConversion.ConvertSpeedK()
+from ConversionFunctions import LightConversion
+CMP = MileConversion.ConvertSpeedMP()
+CKM = KilometerConversion.ConvertSpeedKM()
 CKN = KnotConversion.ConvertSpeedKN()
 CMA = MachConversion.ConvertSpeedMA()
+CLI = LightConversion.ConvertSpeedLI()
 
 # Line Break
 lb = "\n"
@@ -21,20 +23,20 @@ while True:
 
 #Unit Input
     while True:
-        unit_input = input("What unit of speed? Mph, Km/h, Knots, or Mach? ")
+        unit_input = input("^What unit of speed? (Mph), (Km/h), (Knots), (Mach), or the Speed of (Light)? ")
         unit = unit_input[0:2].upper()
-        if unit in ("MP", "KM", "KN", "MA"):
+        if unit in ("MP", "KM", "KN", "MA", "LI"):
             break
-        print("Please input Mph, Km/h, Knots, or Mach!", lb)
+        print("Please input Mph, Km/h, Knots, Mach, or Light!", lb)
         continue
 
 #Desired Unit Input
     while True:
-        desired_unit_input = input("What would you like to convert to? Mph, Kmh, Knots, or Mach? ")
+        desired_unit_input = input("What would you like to convert to? Mph, Kmh, Knots, Mach, or the Speed of Light? ")
         desired_unit = desired_unit_input[0:2].upper()
-        if desired_unit in ("MP", "KM", "KN", "MA"):
+        if desired_unit in ("MP", "KM", "KN", "MA", "LI"):
             break
-        print("Please input Mph, Kmh, Knots, or Mach!", lb)
+        print("Please input Mph, Kmh, Knots, Mach, or Light!", lb)
         continue
 
 #Accuracy Input
@@ -57,25 +59,35 @@ while True:
             continue
 
 #Conversion Functions
-    CM.m_t_m(speed, unit, desired_unit, accuracy)
-    CM.m_t_k(speed, unit, desired_unit, accuracy)
-    CM.m_t_kn(speed, unit, desired_unit, accuracy)
-    CM.m_t_ma(speed, unit, desired_unit, accuracy)
+    CMP.mp_t_mp(speed, unit, desired_unit, accuracy)
+    CMP.mp_t_kn(speed, unit, desired_unit, accuracy)
+    CMP.mp_t_km(speed, unit, desired_unit, accuracy)
+    CMP.mp_t_ma(speed, unit, desired_unit, accuracy)
+    CMP.mp_t_li(speed, unit, desired_unit, accuracy)
 
-    CK.k_t_k(speed, unit, desired_unit, accuracy)
-    CK.k_t_m(speed, unit, desired_unit, accuracy)
-    CK.k_t_kn(speed, unit, desired_unit, accuracy)
-    CK.k_t_ma(speed, unit, desired_unit, accuracy)
+    CKM.km_t_km(speed, unit, desired_unit, accuracy)
+    CKM.km_t_mp(speed, unit, desired_unit, accuracy)
+    CKM.km_t_kn(speed, unit, desired_unit, accuracy)
+    CKM.km_t_ma(speed, unit, desired_unit, accuracy)
+    CKM.km_t_li(speed, unit, desired_unit, accuracy)
 
     CKN.kn_t_kn(speed, unit, desired_unit, accuracy)
-    CKN.kn_t_m(speed, unit, desired_unit, accuracy)
-    CKN.kn_t_k(speed, unit, desired_unit, accuracy)
+    CKN.kn_t_mp(speed, unit, desired_unit, accuracy)
+    CKN.kn_t_km(speed, unit, desired_unit, accuracy)
     CKN.kn_t_ma(speed, unit, desired_unit, accuracy)
+    CKN.kn_t_li(speed, unit, desired_unit, accuracy)
 
     CMA.ma_t_ma(speed, unit, desired_unit, accuracy)
-    CMA.ma_t_m(speed, unit, desired_unit, accuracy)
-    CMA.ma_t_k(speed, unit, desired_unit, accuracy)
+    CMA.ma_t_mp(speed, unit, desired_unit, accuracy)
+    CMA.ma_t_km(speed, unit, desired_unit, accuracy)
     CMA.ma_t_kn(speed, unit, desired_unit, accuracy)
+    CMA.ma_t_li(speed, unit, desired_unit, accuracy)
+
+    CLI.li_t_li(speed, unit, desired_unit, accuracy)
+    CLI.li_t_mp(speed, unit, desired_unit, accuracy)
+    CLI.li_t_km(speed, unit, desired_unit, accuracy)
+    CLI.li_t_kn(speed, unit, desired_unit, accuracy)
+    CLI.li_t_ma(speed, unit, desired_unit, accuracy)
 
 #Program Loop Input
     while True:
