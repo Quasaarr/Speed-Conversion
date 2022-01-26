@@ -3,14 +3,14 @@ class ConvertSpeedLI:
         if unit == "LI" and desired_unit == "LI":
             print(f"Converted Speed: {speed.__round__(accuracy)} times the speed of light")
 
-    def li_t_m(self, speed, unit, desired_unit, accuracy):
+    def li_t_mp(self, speed, unit, desired_unit, accuracy):
         if unit == "LI" and desired_unit == "MP":
             miles_s = speed * 186000
             miles_m = miles_s * 60
             outcome = miles_m * 60
             print(f"Converted Speed: {outcome.__round__(accuracy)}mph")
 
-    def li_t_k(self, speed, unit, desired_unit, accuracy):
+    def li_t_km(self, speed, unit, desired_unit, accuracy):
         if unit == "LI" and desired_unit == "KM":
             miles_s = speed * 186000
             miles_m = miles_s * 60

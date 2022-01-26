@@ -25,7 +25,7 @@ class ConvertSpeedKN:
         if unit == "KN" and desired_unit == "LI":
             feet_h = speed * 6070
             miles_h = feet_h / 5280
-            miles_m = speed / 60
+            miles_m = miles_h / 60
             miles_s = miles_m / 60
             outcome = miles_s / 186000
             print(f"Converted Speed: {outcome.__round__(accuracy)} times the speed of light")

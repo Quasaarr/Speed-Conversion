@@ -23,7 +23,7 @@ while True:
 
 #Unit Input
     while True:
-        unit_input = input("^What unit of speed? (Mph), (Km/h), (Knots), (Mach), or the Speed of (Light)? ")
+        unit_input = input("What unit of speed was that in? (Mph), (Km/h), (Knots), (Mach), or the Speed of (Light)? ")
         unit = unit_input[0:2].upper()
         if unit in ("MP", "KM", "KN", "MA", "LI"):
             break
@@ -32,7 +32,7 @@ while True:
 
 #Desired Unit Input
     while True:
-        desired_unit_input = input("What would you like to convert to? Mph, Kmh, Knots, Mach, or the Speed of Light? ")
+        desired_unit_input = input("What would you like to convert to? (Mph), (Km/h), (Knots), (Mach), or the Speed of (Light)? ")
         desired_unit = desired_unit_input[0:2].upper()
         if desired_unit in ("MP", "KM", "KN", "MA", "LI"):
             break
@@ -91,14 +91,14 @@ while True:
 
 #Program Loop Input
     while True:
-        repeat_input = str(input("Run again? (Y/N): "))
-        repeat = repeat_input.upper
+        answer = str(input("Run again? Yes/No: "))
+        repeat = answer[0].upper()
         if repeat in ("Y", "N"):
             break
-        print("Input (Y) or (N) please!", lb)
+        print("Answer with yes or no please!", lb)
     if repeat == "Y":
         continue
     else:
-        print("Goodbye")
+        print("Goodbye! Thank you for using this program!")
         break
 

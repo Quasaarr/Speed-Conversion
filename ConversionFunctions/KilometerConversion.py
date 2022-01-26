@@ -30,7 +30,7 @@ class ConvertSpeedKM:
             meters_h = speed * 1000
             feet_h = meters_h * 3.280839895013
             miles_h = feet_h / 5280
-            miles_m = speed / 60
+            miles_m = miles_h / 60
             miles_s = miles_m / 60
             outcome = miles_s / 186000
             print(f"Converted Speed: {outcome.__round__(accuracy)} times the speed of light")
